@@ -1,68 +1,67 @@
-# 🕹️ Jogo da Velha - Assembly x86 (8086)
+# 🕹️ Tic-Tac-Toe - Assembly x86 (8086)
 
 ![Language](https://img.shields.io/badge/Language-Assembly%20x86-red)
 ![Platform](https://img.shields.io/badge/Platform-DOS%20(16--bit)-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
-> Um clássico Jogo da Velha desenvolvido inteiramente em **Assembly 8086**, rodando nativamente em modo texto (DOS).
+> A classic Tic-Tac-Toe game developed entirely in **8086 Assembly**, running natively in text mode (DOS).
 
-Este projeto foi criado com foco em **lógica de programação de baixo nível**, manipulação direta de memória e interrupções de BIOS, otimização de rotinas e implementação de uma **Inteligência Artificial Híbrida** (Estratégia + RNG).
+This project was created with a focus on **low-level programming logic**, direct memory manipulation, BIOS interrupts, routine optimization, and the implementation of a **Hybrid Artificial Intelligence** (Strategy + RNG).
 
 ---
 
 ## 📸 Screenshots
 
-| Menu Principal | Tabuleiro do Jogo |
+| Main Menu | Game Board |
 |:---:|:---:|
 | <img width="537" height="357" alt="image" src="https://github.com/user-attachments/assets/6d9eaf65-f854-4b32-8ef8-af29fe0bc4fa" /> | <img width="392" height="170" alt="image" src="https://github.com/user-attachments/assets/dfe9db92-b4c0-409d-b94c-3017f9abfe54" />|
 
 
-> Ambiente de desenvolvimento e execução.
+> Development and execution environment.
 
 <img width="1918" height="1030" alt="image" src="https://github.com/user-attachments/assets/d4eb41b5-66d8-4035-bc01-041939a0d509" />
 
 
 ---
 
-## 📌 Funcionalidades
+## 📌 Features
 
-### 🎮 Modos de Jogo
+### 🎮 Game Modes
 
-* **Jogador vs Jogador (PvP):**
+* **Player vs. Player (PvP):**
   
-    * Dois usuários alternam turnos controlando 'X' e 'O'.
+    * Two users take turns controlling 'X' and 'O'.
     
-    * Validação de inputs em tempo real (apenas números 1-9).
+    * Real-time input validation (numbers 1-9 only).
     
-* **Jogador vs IA (PvIA):**
+* **Player vs. AI (PvAI):**
   
-    * O jogador desafia a CPU.
+    * The player challenges the CPU.
     
-    * A IA possui comportamento defensivo (bloqueio) e ofensivo (vitória), além de variabilidade de jogadas.
+    * The AI features defensive (blocking) and offensive (winning) behaviors, as well as move variability.
 
-### 💻 Aspectos Técnicos
+### 💻 Technical Aspects
 
-* **Interface Gráfica (Modo Texto):** Utiliza `INT 10h` para controle de vídeo e posicionamento de cursor, desenhando o tabuleiro ASCII manualmente.
+* **Graphical Interface (Text Mode):** Uses `INT 10h` for video control and cursor positioning, manually drawing the ASCII board.
 
-* **Feedback Visual:** Mensagens de vitória, empate ("Velha") e erro de jogada.
+* **Visual Feedback:** Messages for victory, draw, and invalid moves.
 
-* **Gerenciamento de Estado:** Reinício automático de variáveis e limpeza da matriz `MATRIZ` após cada partida.
+* **State Management:** Automatic variable reset and clearing of the `MATRIZ` matrix after each match.
 
 ---
 
-## 🧠 A Inteligência Artificial
+## 🧠 The Artificial Intelligence
 
-A IA deste projeto não se baseia apenas em aleatoriedade. Ela implementa uma heurística simples combinada com **RNG (Random Number Generation)** baseado em hardware.
+The AI in this project is not based solely on randomness. It implements a simple heuristic combined with hardware-based **RNG (Random Number Generation)**.
 
-### Estratégia de Decisão
-A rotina `ESCOLHADAIA` segue a seguinte prioridade:
+### Decision Strategy
+The `ESCOLHADAIA` routine follows this priority:
 
-1.  **Fase de Abertura (Turnos < 3):** A IA joga de forma aleatória para garantir que cada partida seja única.
+1.  **Opening Phase (Turns < 3):** The AI plays randomly to ensure that every match feels unique.
 
-2.  **Vitória Imediata:** A macro `TESTA_CASA_IA` verifica se a IA tem 2 símbolos alinhados. Se sim, ela marca o terceiro para vencer.
+2.  **Immediate Victory:** The `TESTA_CASA_IA` macro checks if the AI has 2 aligned symbols. If so, it marks the third to win.
 
-3.  **Bloqueio Crítico:** Se o jogador humano tiver 2 símbolos alinhados, a IA identifica a ameaça e bloqueia a posição.
+3.  **Critical Block:** If the human player has 2 aligned symbols, the AI identifies the threat and blocks the position.
 
-4.  **Jogada Aleatória (Fallback):** Se não houver risco ou chance de vitória, a IA escolhe uma casa livre baseada nos **milissegundos do relógio do sistema** (`INT 21h, AH=2Ch`), garantindo "aleatoriedade real".
-
+4.  **Random Move (Fallback):** If there is no immediate risk or chance of victory, the AI selects a free spot based on the **system clock milliseconds** (`INT 21h, AH=2Ch`), ensuring "true randomness."
