@@ -28,16 +28,25 @@ Este projeto foi criado com foco em **lógica de programação de baixo nível**
 ## 📌 Funcionalidades
 
 ### 🎮 Modos de Jogo
+
 * **Jogador vs Jogador (PvP):**
+  
     * Dois usuários alternam turnos controlando 'X' e 'O'.
+    
     * Validação de inputs em tempo real (apenas números 1-9).
+    
 * **Jogador vs IA (PvIA):**
+  
     * O jogador desafia a CPU.
+    
     * A IA possui comportamento defensivo (bloqueio) e ofensivo (vitória), além de variabilidade de jogadas.
 
 ### 💻 Aspectos Técnicos
+
 * **Interface Gráfica (Modo Texto):** Utiliza `INT 10h` para controle de vídeo e posicionamento de cursor, desenhando o tabuleiro ASCII manualmente.
+
 * **Feedback Visual:** Mensagens de vitória, empate ("Velha") e erro de jogada.
+
 * **Gerenciamento de Estado:** Reinício automático de variáveis e limpeza da matriz `MATRIZ` após cada partida.
 
 ---
