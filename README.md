@@ -65,3 +65,11 @@ The `ESCOLHADAIA` routine follows this priority:
 3.  **Critical Block:** If the human player has 2 aligned symbols, the AI identifies the threat and blocks the position.
 
 4.  **Random Move (Fallback):** If there is no immediate risk or chance of victory, the AI selects a free spot based on the **system clock milliseconds** (`INT 21h, AH=2Ch`), ensuring "true randomness."
+
+## 📬 Contact Me
+<div align="center"> 
+  <a href="https://www.linkedin.com/in/nunes-andrade" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  <a href="https://instagram.com/jp_nunes.andrade" target="_blank"><img src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white"></a>
+  <a href="mailto:jpnunesandrade26@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white"></a>
+  <a href="https://www.alura.com.br/indica-dev/jpnunesandrade26" target="_blank"><img src="https://img.shields.io/badge/Alura-0077B5?style=for-the-badge&logo=alura&logoColor=white"></a> 
+</div>
